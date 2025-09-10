@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from psusphere_app.models import Organization
 from psusphere_app.forms import OrganizationForm
 from django.urls import reverse_lazy
+
+class OrganizationUpdateView(UpdateView):
+    model = Organization
+    form_class = OrganizationForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('organization-list')
 
 class HomePageView(ListView):
     model = Organization
