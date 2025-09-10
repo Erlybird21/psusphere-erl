@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
+
+from django.views.generic.edit import CreateView
 from psusphere_app.models import Organization
+from psusphere_app.forms import OrganizationForm
+from django.urls import reverse_lazy
 
 class HomePageView(ListView):
     model = Organization
@@ -12,4 +16,10 @@ class OrganizationList(ListView):
     context_object_name = 'organization'
     template_name = 'org_list.html'
     paginate_by = 5
+
+class OrganizationCreateView(CreateView):
+    model = Organization
+    form_class = OrganizationForm
+    template_name = 'org_form.html'
+    success_url = reverse_lazy('organization-list')
 # Create your views here.
