@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from psusphere_app.models import Organization
-from psusphere_app.forms import OrganizationForm
+from studentorg.models import Organization
+from studentorg.forms import OrganizationForm
 from django.urls import reverse_lazy
 
-from psusphere_app.models import OrgMember, Student, College, Program
+from studentorg.models import OrgMember, Student, College, Program
 from django.db.models import Q  # <-- Add this import
 
 class HomePageView(ListView):

@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from psusphere_app.views import (HomePageView, OrganizationList, OrganizationCreateView,OrganizationUpdateView,OrganizationDeleteView,
+from studentorg.views import (HomePageView, OrganizationList, OrganizationCreateView,OrganizationUpdateView,OrganizationDeleteView,
                               OrgMemberListView, OrgMemberCreateView, OrgMemberUpdateView, OrgMemberDeleteView,
                               StudentListView, StudentCreateView, StudentUpdateView, StudentDeleteView,
                               CollegeListView, CollegeCreateView, CollegeUpdateView, CollegeDeleteView,
                             ProgramListView, ProgramCreateView, ProgramUpdateView, ProgramDeleteView )
-from psusphere_app import views
+from studentorg import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
