@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-^r4+h$$!ljuk$h%8kyd02)-62o_8zy(nsnpwdd&a$d!^m5*g#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'psusphere.pythonanywhere.com', 'erlybird21.pythonanywhere.com']
 
@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'psusphere_app',
+    'studentorg',
     "widget_tweaks",
+    'django_seed'
 ]
 
 MIDDLEWARE = [
