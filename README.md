@@ -44,7 +44,7 @@ A comprehensive Django-based web application for managing student organizations,
 
 ## 🧑 Authors
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;"> <div style="flex: 1; min-width: 300px; border: 1px solid #444; border-radius: 10px; padding: 20px; background: #000; color: white;"> <div style="text-align: center;"> <a href="https://github.com/Shirajuana"> <img src="https://github.com/Shirajuana.png" width="120" height="120" style="border-radius: 50%; border: 3px solid #fff;"> </a> </div> <h3 style="text-align: center; margin-top: 15px; color: white;">SHEILA MAE VELUYA (Owner)</h3> <p style="text-align: center; margin: 10px 0; color: #ccc;"> <strong>Email:</strong> 202380038@psu.palawan.edu.ph </p> <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;"> <a href="https://github.com/Shirajuana" style="text-decoration: none;"> <img src="https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub"> </a> <a href="https://facebook.com/shielamae.veluya" style="text-decoration: none;"> <img src="https://img.shields.io/badge/-Facebook-1877F2?logo=facebook&logoColor=white&style=for-the-badge" alt="Facebook"> </a> </div> </div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;"> <div style="flex: 1; min-width: 300px; border: 1px solid #444; border-radius: 10px; padding: 20px; background: #000; color: white;"> <div style="text-align: center;"> <a href="https://github.com/Shirajuana"> <img src="https://github.com/Shirajuana.png" width="120" height="120" style="border-radius: 50%; border: 3px solid #fff;"> </a> </div> <h3 style="text-align: center; margin-top: 15px; color: white;">SHEILA MAE VELUYA (Collaborator)</h3> <p style="text-align: center; margin: 10px 0; color: #ccc;"> <strong>Email:</strong> 202380038@psu.palawan.edu.ph </p> <div style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;"> <a href="https://github.com/Shirajuana" style="text-decoration: none;"> <img src="https://img.shields.io/badge/-GitHub-181717?logo=github&logoColor=white&style=for-the-badge" alt="GitHub"> </a> <a href="https://facebook.com/shielamae.veluya" style="text-decoration: none;"> <img src="https://img.shields.io/badge/-Facebook-1877F2?logo=facebook&logoColor=white&style=for-the-badge" alt="Facebook"> </a> </div> </div>
 
 <div style="flex: 1; min-width: 300px; border: 1px solid #444; border-radius: 10px; padding: 20px; background: #000; color: white;">
     <div style="text-align: center;">
@@ -52,7 +52,7 @@ A comprehensive Django-based web application for managing student organizations,
             <img src="https://github.com/Erlybird21.png" width="120" height="120" style="border-radius: 50%; border: 3px solid #fff;">
         </a>
     </div>
-    <h3 style="text-align: center; margin-top: 15px; color: white;">ERL JOSEPH MANGUBAT (Collaborator)</h3>
+    <h3 style="text-align: center; margin-top: 15px; color: white;">ERL JOSEPH MANGUBAT (Owner)</h3>
     <p style="text-align: center; margin: 10px 0; color: #ccc;">
         <strong>Email:</strong> 202380004@psu.palawan.edu.ph
     </p>
