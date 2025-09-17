@@ -53,7 +53,7 @@ class OrganizationList(ListView):
             qs = qs.filter(
                 Q(name__icontains=query) |
                 Q(description__icontains=query) |
-                Q(college__college_nameicontains=query)
+                Q(college__college_name__icontains=query)
             )
         sort = self.request.GET.get("sort")
         if sort:
