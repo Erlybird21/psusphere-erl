@@ -41,16 +41,21 @@ class OrganizationList(ListView):
     context_object_name = 'organization'
     template_name = 'org_list.html'
     paginate_by = 5
+    ordering = ["college__college_name","name"]
 
     def get_queryset(self):
         qs = super().get_queryset()
         query = self.request.GET.get('q')
+
         if query:
             qs = qs.filter(
-                Q(name__icontains=q) |
                 Q(name__icontains=query) |
-                Q(description__icontains=query)
+                Q(description__icontains=query) |
+                Q(college__college_nameicontains=query)
             )
+        sort = self.request.GET.get("sort")
+        if sort:
+            qs = qs.order_by(sort)
         return qs
 
 class OrganizationCreateView(CreateView):
@@ -78,24 +83,44 @@ class OrgMemberListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        q = self.request.GET.get('q')
-        if q:
-            queryset = queryset.filter(
-                Q(student__lastname__icontains=q) |
-                Q(student__firstname__icontains=q) |
-                Q(date_joined__year__icontains=q) |
-                Q(date_joined__month__icontains=q) |
-                Q(date_joined__day__icontains=q) |
-                Q(organization__name__icontains=q)
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            qs = qs.filter(
+                Q(student__firstname__icontains=query) |
+                Q(student__lastname__icontains=query) |
+                Q(organization__name__icontains=query)
             )
-        return queryset
+        return qs
+    
+    def get_ordering(self):
+        allowed = ["student__firstname", "student__lastname", "date_joined"]
+        sort_by = self.request.GET.get("sort_by")
+        if sort_by in allowed:
+            return sort_by
+        return "student__firstname"
 
 class OrgMemberCreateView(CreateView):
     model = OrgMember
     fields = '__all__'
     template_name = 'orgmember_form.html'
     success_url = reverse_lazy('orgmember-list')
+    paginate_by = 5
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            qs = qs.filter(
+                Q(student_id__icontains=query) |
+                Q(lastname__icontains=query) |
+                Q(firstname__icontains=query) |
+                Q(middlename__icontains=query) |
+                Q(program__prog_name__icontains=query)
+            )
+        return qs
 
 class OrgMemberUpdateView(UpdateView):
     model = OrgMember
@@ -116,23 +141,36 @@ class StudentListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        q = self.request.GET.get('q')
-        if q:
-            queryset = queryset.filter(
-                Q(lastname__icontains=q) |
-                Q(firstname__icontains=q) |
-                Q(middlename__icontains=q) |
-                Q(student_id__icontains=q) |
-                Q(program__prog_name__icontains=q)
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            qs = qs.filter(
+                Q(student_id__icontains=query) |
+                Q(lastname__icontains=query) |
+                Q(firstname__icontains=query) |
+                Q(middlename__icontains=query) |
+                Q(program__prog_name__icontains=query)
             )
-        return queryset
+        return qs
+
 
 class StudentCreateView(CreateView):
     model = Student
     fields = '__all__'
     template_name = 'student_form.html'
     success_url = reverse_lazy('student-list')
+    paginate_by = 5
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            qs = qs.filter(
+                Q(college_name__icontains=query)
+            )
+        return qs
 
 class StudentUpdateView(UpdateView):
     model = Student
@@ -153,17 +191,28 @@ class CollegeListView(ListView):
     paginate_by = 5
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        q = self.request.GET.get('q')
-        if q:
-            queryset = queryset.filter(Q(college_name__icontains=q))
-        return queryset
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+
+        if query:
+            qs = qs.filter(
+                Q(college_name__icontains=query)
+            )
+        return qs
 
 class CollegeCreateView(CreateView):
     model = College
     fields = '__all__'
     template_name = 'college_form.html'
     success_url = reverse_lazy('college-list')
+    paginate_by = 5
+
+    def get_ordering(self):
+        allowed = ["prog_name", "college__college_name"]
+        sort_by = self.request.GET.get("sort_by")
+        if sort_by in allowed:
+            return sort_by
+        return "prog_name"
 
 class CollegeUpdateView(UpdateView):
     model = College
@@ -183,15 +232,12 @@ class ProgramListView(ListView):
     template_name = 'program_list.html'
     paginate_by = 5
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        q = self.request.GET.get('q')
-        if q:
-            queryset = queryset.filter(
-                Q(prog_name__icontains=q) |
-                Q(college__college_name__icontains=q)
-            )
-        return queryset
+    def get_ordering(self):
+        allowed = ["prog_name", "college__college_name"]
+        sort_by = self.request.GET.get("sort_by")
+        if sort_by in allowed:
+            return sort_by
+        return "prog_name"
 
 class ProgramCreateView(CreateView):
     model = Program

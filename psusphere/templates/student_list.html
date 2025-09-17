@@ -16,7 +16,7 @@
                         <div class="col-md-6">
                             <form class="navbar-left navbar-form nav-search mr-md-3" action="{% url 'student-list' %}" method="get">
                                 <div class="input-group">
-                                    <input type="text" name="q" placeholder="Search ..." class="form-control" value="{{ request.GET.q }}">
+                                    <input type="text" placeholder="Search ..." class="form-control" name="q" value="{{ request.GET.q }}">
                                     <div class="input-group-append">
                                         <button type="submit" class="input-group-text btn btn-link">
                                             <i class="la la-search search-icon"></i>
